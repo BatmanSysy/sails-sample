@@ -46,8 +46,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /signin': {
-    view: 'account/signin'
-  }
+  'get /signin': 'HomeController.signin',
+  'get /signout': 'HomeController.signout',
+  'get /signup': 'HomeController.signup'
 
 };

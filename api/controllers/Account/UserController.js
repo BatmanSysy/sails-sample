@@ -54,16 +54,7 @@ module.exports = {
     return res.json({
       todo: 'list() is not implemented yet!'
     });
-  },
-
-
-  /**
-   * `Account/UserController.index()`
-   */
-  signin: function (req, res) {
-    return res.json({
-      todo: 'signin() is not implemented yet!'
-    });
   }
+
 };
 
