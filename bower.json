@@ -1,0 +1,26 @@
+{
+  "name": "sails-sample",
+  "version": "0.0.1",
+  "authors": [
+    "Boonyarit Wiriyagulpat <boonyarit.w@taskworld.com>"
+  ],
+  "description": "a Sails application",
+  "main": "app.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/BatmanSysy/sails-sample",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.1"
+  }
+}
