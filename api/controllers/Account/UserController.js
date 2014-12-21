@@ -10,17 +10,24 @@ module.exports = {
   /**
    * `Account/UserController.create()`
    */
-  create: function (req, res) {
-    return res.json({
-      todo: 'create() is not implemented yet!'
+  create: function(req, res, next) {
+    console.log('begin create user');
+
+    User.create(req.params.all(), function userCreated(err, user) {
+      if (err) return next(err);
+
+      res.json(user);
+
+      console.log('user created');
     });
+
   },
 
 
   /**
    * `Account/UserController.update()`
    */
-  update: function (req, res) {
+  update: function(req, res) {
     return res.json({
       todo: 'update() is not implemented yet!'
     });
@@ -30,7 +37,7 @@ module.exports = {
   /**
    * `Account/UserController.delete()`
    */
-  delete: function (req, res) {
+  delete: function(req, res) {
     return res.json({
       todo: 'delete() is not implemented yet!'
     });
@@ -40,7 +47,7 @@ module.exports = {
   /**
    * `Account/UserController.getById()`
    */
-  getById: function (req, res) {
+  getById: function(req, res) {
     return res.json({
       todo: 'getById() is not implemented yet!'
     });
@@ -50,11 +57,10 @@ module.exports = {
   /**
    * `Account/UserController.list()`
    */
-  list: function (req, res) {
+  list: function(req, res) {
     return res.json({
       todo: 'list() is not implemented yet!'
     });
   }
 
 };
-

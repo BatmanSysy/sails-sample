@@ -7,6 +7,8 @@
 
 module.exports = {
 
+  schema: true,
+
   attributes: {
 
     id: {
@@ -28,7 +30,19 @@ module.exports = {
 
     password: {
       type: "string"
+    },
+
+    retypePassword: {
+      type: "string"
     }
+
+    // toJSON: function() {
+    //   var obj = this.toObject();
+    //   delete obj.password;
+    //   delete obj.retypePassword;
+    //   delete obj._csrf;
+    //   return obj;
+    // }
 
   }
 
