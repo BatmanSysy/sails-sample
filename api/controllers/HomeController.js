@@ -1,34 +1,18 @@
 /**
  * HomeController
  *
- * @description :: Server-side logic for managing Homes
+ * @description :: Server-side logic for managing homes
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
 module.exports = {
+  /**
+   * `HomeController.index()`
+   */
+  index: function(req, res, next) {
 
-    /**
-     * `HomeController.signin()`
-     */
-    signin: function(req, res) {
-        return res.view('home/signin', {useParalax: true});
-    },
-
-    /**
-     * `HomeController.signout()`
-     */
-    signout: function(req, res) {
-        return res.json({
-            todo: 'signout() is not implemented yet!'
-        });
-    },
-
-    /**
-     * `HomeController.signup()`
-     */
-    signup: function(req, res) {
-        return res.json({
-            todo: 'signup() is not implemented yet!'
-        });
-    }
+    return res.view('home/welcome', {
+      fullName: req.session.User.fullName
+    });
+  }
 };
