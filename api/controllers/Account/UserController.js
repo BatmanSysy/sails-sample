@@ -58,8 +58,11 @@ module.exports = {
    * `Account/UserController.list()`
    */
   list: function(req, res) {
-    return res.json({
-      todo: 'list() is not implemented yet!'
+    console.log('api - user list')
+    User.find().exec(function(err, users){
+
+    return res.json(users);
+
     });
   }
 

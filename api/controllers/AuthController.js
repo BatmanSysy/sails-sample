@@ -11,22 +11,23 @@ module.exports = {
    * `AuthController.signin()`
    */
   signin: function(req, res, next) {
-    console.log('signin ->', req.params);
 
-    User.findOneByEmail(req.param('email'),
-      function foundUser(err, user) {
-        if (err) return next(err);
+    User.findOneByEmail(req.body.email, function foundUser(err, user) {
+      if (err) return next(err);
 
-        if (!user) req.redirect('/auth/sigin');
+      console.log('user -> ', user.password,
+        ' | request -> ', req.body.password);
 
+      if (user && user.password == req.body.password) {
         req.session.authenticated = true;
         req.session.User = user;
+        res.redirect('/');
 
-        return res.view('/auth/welcome', {
-          fullName: user.fullName
-        });
+      } else {
+        return res.view();
+      }
 
-      });
+    });
 
   },
 
@@ -34,12 +35,13 @@ module.exports = {
    * `AuthController.signup()`
    */
   signup: function(req, res, next) {
-    console.log('signup ->', req.params);
 
-
-    return res.json({
-      signup: true
+    User.create(req.body, function userCreated(err, user) {
+      if (err) return next(err);
+      console.log('new user -> \\n', user);
+      res.redirect('/signin');
     });
+
   },
 
   /**

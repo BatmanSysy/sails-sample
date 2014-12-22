@@ -23,19 +23,17 @@ module.exports = {
     },
 
     email: {
-      type: 'email',
+      type: 'string',
+      email: true,
       required: true,
       unique: true
     },
 
     password: {
       type: "string"
-    },
-
-    retypePassword: {
-      type: "string"
     }
 
+    // ,
     // toJSON: function() {
     //   var obj = this.toObject();
     //   delete obj.password;
